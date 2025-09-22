@@ -10,12 +10,16 @@ const clientProxyMiddleware = createProxyMiddleware<Request, Response>({
   changeOrigin: true
 });
 
+const appointmentProxyMiddleware = createProxyMiddleware<Request, Response>({
+  target: 'http://msappointments:3010/api/v1/appointments',
+  changeOrigin: true
+});
 
 router.get('/', (req: Request, res: Response, next: NextFunction) => {
   res.json('hi');
   next();
 });
-// router.use('/appointments', appointmentProxy);
+router.use('/appointments', appointmentProxyMiddleware);
 router.use('/owners', clientProxyMiddleware);
 
 export default router;
