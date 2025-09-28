@@ -240,23 +240,6 @@ const loadAppointments = async (): Promise<void> => {
   } finally {
     await prisma.$disconnect();
   }
-  // try {
-  //   await prisma.appointment.create({
-  //     data: {
-  //       state: 'pending',
-  //       name: 'Mickey',
-  //       breed: 'Mouse',
-  //       timeslotId: 1,
-  //       theDateId: 246,
-  //     },
-  //   });
-  //   console.log('Added appointment data');
-  // } catch (e) {
-  //   console.error(e);
-  //   process.exit(1);
-  // } finally {
-  //   await prisma.$disconnect();
-  // }
 };
 
 load();
