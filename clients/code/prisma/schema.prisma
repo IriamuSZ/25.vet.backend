@@ -17,6 +17,7 @@ model Owner {
   id              Int      @id @default(autoincrement())
   firstName       String
   lastName        String
+  email           String  
   pets            Pet[]
 }
 
@@ -24,7 +25,7 @@ model Pet {
   id              Int      @id @default(autoincrement())
   ownerId         Int
   name            String
-  species         String   
+  specie          String   
   breed           String
   date_of_birth   DateTime
   owner           Owner @relation(fields: [ownerId], references: [id])

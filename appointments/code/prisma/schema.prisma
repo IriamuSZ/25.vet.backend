@@ -34,7 +34,7 @@ model Appointment {
 
 model Timeslot {
   id           Int           @id @default(autoincrement())
-  startTime    DateTime
-  endTime      DateTime
+  starttime    String
+  endTime      String
   appointments Appointment[]
 }

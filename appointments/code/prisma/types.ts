@@ -9,8 +9,8 @@
 
 interface Appointment {
   id?: number,
-  pets_id?: number,
-  appointment_date: Date,
+  petId?: number,
+  appointmentDate: Date,
   timeslotId: number,
   reason: string,
   status: string
