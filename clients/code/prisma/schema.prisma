@@ -28,5 +28,4 @@ model Pet {
   breed           String
   date_of_birth   DateTime
   owner           Owner @relation(fields: [ownerId], references: [id])
-  appts           Appointment[]
 }

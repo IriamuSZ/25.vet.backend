@@ -4,6 +4,8 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,27 +15,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum ApptStatus{
+enum ApptStatus {
   Pending
-  In Progress
+  InProgress
   Completed
   Canceled
 }
 
 model Appointment {
   id                  Int      @id @default(autoincrement())
-  pet_id              Int
-  appointment_date    DateTime
-  timeslot_id         Int
+  petId               Int
+  appointmentDate     DateTime
+  timeslotId          Int
   reason              String
   status              ApptStatus @default(Pending)
-  pets                Pet @relation(fields: [petsId], references: [id])
-  timeslots           Timeslot @relation(fields: [timeslotId], references: [id])
+  timeslot            Timeslot @relation(fields: [timeslotId], references: [id])
 }
 
 model Timeslot {
   id           Int           @id @default(autoincrement())
-  starttime    Time
-  endTime      Time
-  Appointments Appointment[]
+  startTime    DateTime
+  endTime      DateTime
+  appointments Appointment[]
 }
