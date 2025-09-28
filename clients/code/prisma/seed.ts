@@ -7,63 +7,74 @@ import { Owner, Pet } from './types.ts';
 // if you use the model you have to fill in all the fields also the generated ones
 const clients: Owner[] = [
   {
-    name: 'Jane Doe',
+    firstName: 'Jane',
+    lastName: 'Doe',
     email: 'jane@doe.com',
   },
   {
-    name: 'John Doe',
+    firstName: 'John',
+    lastName: 'Doe',
     email: 'john@doe.com',
   },
   {
-    name: 'Mary Jane',
+    firstName: 'Mary',
+    lastName: 'Jane',
     email: 'mary@jane.com',
   },
 ];
 
 const pets: Pet[] = [
   {
+    ownerId: 1,
     name: 'Fido',
     specie: 'Dog',
     breed: 'Labrador',
-    ownerId: 1,
+    date_of_birth: new Date('2020-03-15')
   },
   {
+    ownerId: 2,
     name: 'Whiskers',
     specie: 'Cat',
     breed: 'Siamese',
-    ownerId: 2,
+    date_of_birth: new Date('2019-07-22')
   },
   {
+    ownerId: 3,
     name: 'Rex',
     specie: 'Dog',
     breed: 'German Shepherd',
-    ownerId: 3,
+    date_of_birth: new Date('2018-11-05')
   },
-  {
+  {    
+    ownerId: 1,
     name: 'Bella',
     specie: 'Dog',
     breed: 'Golden Retriever',
-    ownerId: 1,
+    date_of_birth: new Date('2021-02-10')
   },
   {
+    ownerId: 2,
     name: 'Milo',
     specie: 'Cat',
     breed: 'Tabby',
-    ownerId: 2,
+    date_of_birth: new Date('2020-09-30')
   },
-  {
+  {    
+    ownerId: 3,
     name: 'Luna',
     specie: 'Dog',
     breed: 'Poodle',
-    ownerId: 3,
+    date_of_birth: new Date('2019-12-17')
   },
   {
+    ownerId: 1,
     name: 'Max',
     specie: 'Dog',
     breed: 'Bulldog',
-    ownerId: 1,
+    date_of_birth: new Date('2017-05-08')
   }
 ];
+
 
 const load = async (): Promise<void> => {
   try {

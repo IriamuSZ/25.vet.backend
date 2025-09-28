@@ -9,18 +9,18 @@
 
 interface Owner {
   id?: number,
-  createdAt?: Date,
-  name: string,
+  firstName: string,
+  lastName: string,
   email: string,
 }
 
 interface Pet {
   id?: number,
-  createdAt?: Date,
+  ownerId: number,
   name: string,
   specie: string,
   breed: string,
-  ownerId: number,
+  date_of_birth: Date,
 }
 
 export { Owner, Pet };

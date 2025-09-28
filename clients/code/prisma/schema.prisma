@@ -14,19 +14,19 @@ datasource db {
 }
 
 model Owner {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  email     String   @unique
-  name      String?
-  pets      Pet[]
+  id              Int      @id @default(autoincrement())
+  firstName       String
+  lastName        String
+  pets            Pet[]
 }
 
 model Pet {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  name      String
-  specie    String   
-  breed     String
-  owner    Owner @relation(fields: [ownerId], references: [id])
-  ownerId  Int
+  id              Int      @id @default(autoincrement())
+  ownerId         Int
+  name            String
+  species         String   
+  breed           String
+  date_of_birth   DateTime
+  owner           Owner @relation(fields: [ownerId], references: [id])
+  appts           Appointment[]
 }

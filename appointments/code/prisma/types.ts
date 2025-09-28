@@ -9,29 +9,17 @@
 
 interface Appointment {
   id?: number,
-  createdAt?: Date,
-  state: string,
-  name: string,
-  breed: string,
+  pets_id?: number,
+  appointment_date: Date,
   timeslotId: number,
-  theDateId: number,
+  reason: string,
+  status: string
 }
 
 interface TimeSlot {
   id?: number,
-  createdAt?: Date,
   starttime: string,
-  duration: number,
+  endTime: string,
 }
 
-interface TheDate {
-  id?: number,
-  createdAt?: Date,
-  day: number,
-  month: number,
-  year: number,
-  appointments?: Appointment[]
-}
-
-
-export { Appointment, TimeSlot, TheDate };
+export { Appointment, TimeSlot };

@@ -13,31 +13,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum ApptStatus{
+  Pending
+  In Progress
+  Completed
+  Canceled
+}
+
 model Appointment {
-  id         Int      @id @default(autoincrement())
-  createdAt  DateTime @default(now())
-  state      String   @default("pending")
-  name       String
-  breed      String
-  timeslot   Timeslot @relation(fields: [timeslotId], references: [id])
-  timeslotId Int
-  theDate    TheDate  @relation(fields: [theDateId], references: [id])
-  theDateId  Int
+  id                  Int      @id @default(autoincrement())
+  pet_id              Int
+  appointment_date    DateTime
+  timeslot_id         Int
+  reason              String
+  status              ApptStatus @default(Pending)
+  pets                Pet @relation(fields: [petsId], references: [id])
+  timeslots           Timeslot @relation(fields: [timeslotId], references: [id])
 }
 
 model Timeslot {
   id           Int           @id @default(autoincrement())
-  createdAt    DateTime      @default(now())
-  starttime    String
-  duration     Int
-  Appointments Appointment[]
-}
-
-model TheDate {
-  id           Int           @id @default(autoincrement())
-  createdAt    DateTime      @default(now())
-  day          Int
-  month        Int
-  year         Int
+  starttime    Time
+  endTime      Time
   Appointments Appointment[]
 }
