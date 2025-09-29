@@ -22,4 +22,13 @@ interface TimeSlot {
   endTime: string,
 }
 
-export { Appointment, TimeSlot };
+
+interface TheDate {
+  id?: number,
+  day: number,
+  month: number,
+  year: number,
+  appointments?: Appointment[]
+}
+
+export { Appointment, TimeSlot, TheDate};

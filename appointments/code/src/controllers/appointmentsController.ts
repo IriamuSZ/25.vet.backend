@@ -52,7 +52,7 @@ export async function getAllApointments(req: Request, res: Response): Promise<vo
       return;
     }
     day = Number(tempDay);
-    appointments = await getApppointmentsByDay(day);
+    appointments = await getApppointmentsByDay(day);*/
     console.log(`I found: ${day}`);
   } else {
     appointments = await prisma.appointment.findMany();
@@ -77,7 +77,7 @@ async function getApppointmentsByDay(day: number): Promise<Appointment[]> {
   const appointments: Appointment[] = await prisma.appointment.findMany(
     {
       where: {
-        theDateId: day
+        date: day
       }
     }
   );
